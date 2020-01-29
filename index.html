@@ -3,12 +3,12 @@
 	<head>
 	<style type="text/css">
 		img { position:absolute }
-		div { position:absolute; width:500px; height:500px }
-		#rightSide { left: 500px; border-left: 1px solid black }
+		div { position:absolute; width:600px; height:600px }
+		#rightSide { left: 600px; border-left: 1px solid black }
 	</style>
 	</head>
 	<script>
-		numberOfFaces = 5;
+		numberOfFaces = 2;
 
 		function generateFaces() {
 			for (var i = 1; i <= numberOfFaces; i++) {
@@ -16,7 +16,7 @@
 				var randomTop = Math.floor(Math.random() * 400) + 1;
 				var randomLeft = Math.floor(Math.random() * 400) + 1;
 
-				img.src="smile.png";
+				img.src="popcorn-time.png";
 				img.style.top = randomTop + "px";
 				img.style.left = randomLeft + "px";
 				theLeftSide.appendChild(img);
@@ -28,7 +28,7 @@
 
 			theLeftSide.lastChild.onclick = function nextLevel(event){
        				event.stopPropagation();
-		        	numberOfFaces += 5;
+       				numberOfFaces += 2;
 		        	clearChildren();
 		        	generateFaces();
 				};
@@ -42,8 +42,8 @@
 	</script>
 
 	<body onload="generateFaces()">
-		<h1>Matching Game</h1>
-		Click on the extra smiling face on the left.
+		<h1>Popcorn Game</h1>
+		Find (and click) on the extra popcorn on the left side. It's not easy!!
 		<div id="leftSide"></div> 
 		<div id="rightSide"></div>
 
@@ -54,7 +54,8 @@
 			theBody = document.getElementsByTagName("body")[0];
 			theBody.onclick =
 				function gameOver() {
-					alert("Game Over!");
+					alert("NOOOOOOOOOOO. Game Over!");
+					window.close();
     				theBody.onclick = null;
 			    	theLeftSide.lastChild.onclick = null;
 				};
